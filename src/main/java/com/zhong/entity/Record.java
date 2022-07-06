@@ -40,7 +40,7 @@ public class Record implements Serializable {
     @Column(name = "uid")
     private Integer uid;
 
-    @Column(name = "uid")
+    @Column(name = "note")
     private String note;
 
     @Column(name = "create_date")
