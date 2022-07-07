@@ -1,6 +1,10 @@
 package com.zhong.service;
 
 
+import com.zhong.entity.User;
+
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -11,4 +15,11 @@ package com.zhong.service;
  */
 public interface UserService{
 
+    User findByUsernameAndPassword(String username, String password);
+
+    User findByUid(Integer id);
+
+    void save(User res);
+
+    List<User> findAll();
 }
