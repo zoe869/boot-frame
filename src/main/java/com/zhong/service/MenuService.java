@@ -1,5 +1,9 @@
 package com.zhong.service;
 
+import com.zhong.entity.Menu;
+
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -10,4 +14,13 @@ package com.zhong.service;
  */
 public interface MenuService{
 
+    List findAll();
+
+    Menu findById(Integer menuId);
+
+    void deleteById(Integer id);
+
+    Menu update(Menu menu);
+
+    Menu save(Menu menu);
 }

@@ -19,7 +19,11 @@ public interface UserService{
 
     User findByUid(Integer id);
 
-    void save(User res);
+    User save(User res);
 
     List<User> findAll();
+
+    void deleteByUid(Integer userId);
+
+    User update(User user);
 }

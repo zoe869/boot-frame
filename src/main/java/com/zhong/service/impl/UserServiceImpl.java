@@ -6,7 +6,10 @@ import com.zhong.repository.UserRepository;
 import com.zhong.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +20,7 @@ import java.util.List;
  * @author
  * @since 2022-07-05
  */
+@Transactional
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -34,13 +38,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User res) {
-        userRepository.save(res);
+    public User save(User res) {
+        return userRepository.save(res);
     }
 
     @Override
     public List<User> findAll() {
         System.out.println("userRepository.userRepository.findAll()"+userRepository.findAll());
         return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteByUid(Integer userId) {
+        userRepository.deleteByUserId(userId);
+    }
+
+    @Override
+    public User update(User user) {
+        user.setUpdateDate(new Date());
+        return userRepository.saveAndFlush(user);
     }
 }

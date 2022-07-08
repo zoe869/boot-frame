@@ -5,11 +5,14 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -43,9 +46,13 @@ public class Record implements Serializable {
     @Column(name = "note")
     private String note;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     @Column(name = "create_date")
-    private LocalDateTime createDate;
+    private Date createDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
     @Column(name = "update_date")
-    private LocalDateTime updateDate;
+    private Date updateDate;
 }

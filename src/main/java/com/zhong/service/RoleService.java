@@ -1,5 +1,11 @@
 package com.zhong.service;
 
+import com.zhong.entity.Menu;
+import com.zhong.entity.Record;
+import com.zhong.entity.Role;
+
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -10,4 +16,13 @@ package com.zhong.service;
  */
 public interface RoleService {
 
+    List findAll();
+
+    Role findById(Integer roleId);
+
+    void deleteById(Integer id);
+
+    Role update(Role role);
+
+    Role save(Role role);
 }

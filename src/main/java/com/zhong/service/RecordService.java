@@ -1,6 +1,11 @@
 package com.zhong.service;
 
 
+import com.zhong.entity.Menu;
+import com.zhong.entity.Record;
+
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -11,4 +16,13 @@ package com.zhong.service;
  */
 public interface RecordService{
 
+    List findAll();
+
+    Record findById(Integer recordId);
+
+    void deleteById(Integer id);
+
+    Record update(Record record);
+
+    Record save(Record record);
 }

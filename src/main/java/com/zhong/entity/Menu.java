@@ -2,9 +2,12 @@ package com.zhong.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -32,4 +35,14 @@ public class Menu implements Serializable {
 
     @Column(name = "role_id")
     private Integer roleId;
+
+    @Column(name = "create_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date createDate;
+
+    @Column(name = "update_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
+    private Date updateDate;
 }

@@ -5,10 +5,15 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -37,10 +42,14 @@ public class User implements Serializable {
     private String password;
 
     @Column(name = "create_date")
-    private LocalDateTime createDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date createDate;
 
     @Column(name = "update_date")
-    private LocalDateTime updateDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
+    private Date updateDate;
 
     @Column(name = "email")
     private String email;
