@@ -14,6 +14,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -23,9 +24,9 @@ import java.util.Date;
  * @author
  * @since 2022-07-05
  */
+@Entity
 @Data
 @Table(name="sys_tbl_user")
-@Entity
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,10 +55,17 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "role_id")
+    @Column(name = "role_id",columnDefinition = "int default 1")
     private Integer roleId;
 
     @Column(name = "status")
-    private Integer status;
+    private Integer status=1;
+
+    @Column(name = "verity")
+    private String verity;
+
+    @Transient
+    private List<Privilege> privileges;
 
 }
+

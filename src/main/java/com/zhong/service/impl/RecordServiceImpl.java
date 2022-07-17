@@ -1,7 +1,6 @@
 package com.zhong.service.impl;
 
 
-import com.zhong.entity.Menu;
 import com.zhong.entity.Record;
 import com.zhong.repository.RecordRepository;
 import com.zhong.service.RecordService;
@@ -32,7 +31,7 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public Record findById(Integer recordId) {
-        return recordRepository.findbyRecordId(recordId);
+        return recordRepository.findByRecordId(recordId);
     }
 
     @Override

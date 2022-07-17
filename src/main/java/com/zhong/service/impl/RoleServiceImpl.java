@@ -1,7 +1,6 @@
 package com.zhong.service.impl;
 
 
-import com.zhong.entity.Menu;
 import com.zhong.entity.Role;
 import com.zhong.repository.RoleRepository;
 import com.zhong.service.RoleService;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>
@@ -32,7 +32,8 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role findById(Integer roleId) {
-        return roleRepository.findbyRoleId(roleId);
+        Optional<Role> byId = roleRepository.findById(roleId);
+        return byId.isPresent()?byId.get():null;
     }
 
     @Override

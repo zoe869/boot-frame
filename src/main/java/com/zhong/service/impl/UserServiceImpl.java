@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
     public User save(User res) {
         return userRepository.save(res);
     }
@@ -58,4 +63,12 @@ public class UserServiceImpl implements UserService {
         user.setUpdateDate(new Date());
         return userRepository.saveAndFlush(user);
     }
+
+    @Override
+    public boolean userIsExisted(User user) {
+        User res = userRepository.findByUsername(user.getUsername());
+        return res!=null?true:false;
+    }
+
+
 }

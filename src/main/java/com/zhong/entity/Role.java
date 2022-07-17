@@ -12,6 +12,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * <p>
@@ -30,8 +32,8 @@ public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "role_id")
-    private Integer roleId;
+    @Column(name = "id")
+    private Integer id;
 
 
     @Column(name = "rolename")
@@ -40,8 +42,10 @@ public class Role implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "menu")
-    private Integer menu;
+
+    @OneToMany(mappedBy="role",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval = true)
+    private Set<Privilege> privileges = new HashSet<>();
+
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
@@ -52,5 +56,7 @@ public class Role implements Serializable {
     @UpdateTimestamp
     @Column(name = "update_date")
     private Date updateDate;
+
+
 
 }

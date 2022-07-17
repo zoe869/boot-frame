@@ -42,7 +42,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.23</version>
+      <version>8.0.26</version>
     </dependency>
     <dependency>
       <groupId>io.springfox</groupId>
@@ -64,6 +64,101 @@
           <artifactId>lombok</artifactId>
           <version>1.18.12</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <version>${project.parent.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.github.whvcse</groupId>
+        <artifactId>easy-captcha</artifactId>
+        <version>1.6.2</version>
+      </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.12</version>
+    </dependency>
+      <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.8.5</version>
+      </dependency>
+
   </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes><include>static/front/iconfont.svg</include>
+          <include>static/front/iconfont.woff</include>
+          <include>static/front/iconfont.ttf</include>
+          <include>static/front/iconfont.eot</include>
+          <include>static/lib/layui/front/iconfont.ttf</include>
+          <include>static/lib/layui/front/iconfont.woff</include>
+          <include>static/lib/layui/front/iconfont.eot</include>
+          <include>static/lib/layui/front/iconfont.svg</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+          <exclude>static/lib/layui/front/iconfont.ttf</exclude>
+          <exclude>static/lib/layui/front/iconfont.woff</exclude>
+          <exclude>static/lib/layui/front/iconfont.eot</exclude>
+          <exclude>static/lib/layui/front/iconfont.svg</exclude>
+          <exclude>static/front/iconfont.svg</exclude>
+          <exclude>static/front/iconfont.woff</exclude>
+          <exclude>static/front/iconfont.ttf</exclude>
+          <exclude>static/front/iconfont.eot</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${project.parent.version}</version>
+
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>src/main/resources</directory>
+              <filtering>false</filtering>
+              <targetPath>WEB-INF/classes</targetPath>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <nonFilteredFileExtensions>
+            <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+            <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+            <nonFilteredFileExtension>zip</nonFilteredFileExtension>
+            <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+            <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+            <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+            <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+            <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+          </nonFilteredFileExtensions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

@@ -5,6 +5,7 @@ import com.zhong.exception.SysException;
 import com.zhong.service.UserService;
 import com.zhong.utils.SysResult;
 import com.zhong.utils.SysResultHandler;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ import java.util.List;
 @RequestMapping("/user")
 @RestController
 public class UserController {
+
 
     @Autowired
     private UserService userService;

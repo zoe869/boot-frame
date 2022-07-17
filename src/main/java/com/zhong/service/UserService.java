@@ -18,6 +18,7 @@ public interface UserService{
     User findByUsernameAndPassword(String username, String password);
 
     User findByUid(Integer id);
+    User findByUsername(String username);
 
     User save(User res);
 
@@ -26,4 +27,6 @@ public interface UserService{
     void deleteByUid(Integer userId);
 
     User update(User user);
+
+    boolean userIsExisted(User user);
 }
